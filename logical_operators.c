@@ -1,7 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <unistd.h>
+#include "shell.h"
 
 int execute_command();
 int execute_command(const char *command)
@@ -79,17 +76,17 @@ command = strtok(NULL, "&&||");
 }
 
 }
-int main (void);
+/*int main (void);
 {
 char input_commands[256];
 write(STDOUT_FILENO, "Enter commands: ", 16);
 fgets(input_commands, sizeof(input_commands), stdin);
 
 /* Remove trailing newline character */
-input_commands[strcspn(input_commands, "\n")] = '\0';
+/*input_commands[strcspn(input_commands, "\n")] = '\0';
 
 parse_commands(input_commands);
 
 return (0);
 
-}
+}*/

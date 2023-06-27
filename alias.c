@@ -1,11 +1,4 @@
-#include <unistd.h>
-#include <string.h>
-#include <stdio.h>
-
-#define MAX_ALIASES 100
-#define MAX_ALIAS_NAME 50
-#define MAX_ALIAS_VALUE 100
-
+#include "shell.h"
 
 char name[] = "MAX_ALIAS-VALUE";
 char value[] =  "MAX_ALIAS_VALUE";

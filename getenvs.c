@@ -1,8 +1,4 @@
-#include <stdlib.h>
-#include <unistd.h>
-#include <string.h>
 #include "shell.h"
-#include <stdio.h>
 
 void print_error(const char *message)
 {

@@ -1,11 +1,5 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <unistd.h>
-#include <sys/types.h>
-#include <sys/wait.h>
+#include "shell.h"
 
-#define BUFFER_SIZE 1024
 /**
  * main entry point of the program
  * command  store the user's input and starts an infinite loop

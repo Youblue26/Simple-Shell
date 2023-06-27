@@ -1,5 +1,29 @@
-#ifndef _SHEEL_H_
-#define _SHELL_H_
+#ifndef SHELL_H
+#define SHELL_H
+
+#include <stdio.h>
+#include <string.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+#include <stdlib.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <errno.h>
+#include <stdbool.h>
+
+
+#define MAX_COMMAND_LENGTH 1000
+#define MAX_LINE 1024
+#define MAX_ARGUMENTS 100
+#define MAX_PATH 2048
+#define MAX_VAR 100
+#define MAX_TOKEN 100
+
+#define MAX_ALIASES 100
+#define MAX_ALIAS_NAME 50
+#define MAX_ALIAS_VALUE 100
+#define BUFFER_SIZE 1024
 
 /*getenvs.c*/
 void print_error(const char *message);

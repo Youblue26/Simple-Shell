@@ -1,10 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <fcntl.h>
-#include <string.h>
-
-#define MAX_COMMAND_LENGTH 1000
+#include "shell.h"
 
 void run_commands_from_file(const char *filename)
 {
