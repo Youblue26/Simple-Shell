@@ -12,10 +12,8 @@
 #include <errno.h>
 #include <stdbool.h>
 
-
-#define MAX_COMMAND_LENGTH 1000
 #define MAX_LINE 1024
-#define MAX_ARGUMENTS 100
+#define MAX_ARGUMENTS 10
 #define MAX_PATH 2048
 #define MAX_VAR 100
 #define MAX_TOKEN 100
@@ -25,22 +23,66 @@
 #define MAX_ALIAS_VALUE 100
 #define BUFFER_SIZE 1024
 
-/*getenvs.c*/
-void print_error(const char *message);
-int main(int argc, char *argv[]);
-char success_message[128];
+extern char **environ;
 
-/*cd.c*/
-void change_directory(char *directory);
-int main(int argc, char *argv[]);
+/* Function prototype */
 
-/*commands_separator.c*/
-void run_command(const char *command);
-void run_commands(const char *commands);
+/* main.c */
+int main(void);
+int argts_handle(int cmds_count, char **cmds,
+char **argts, char **env);
+int builtin(char **argts);
 
-/*logical_operators.c*/
-int execute_command(const char *command);
-void parse_commands(char *commands);
+void bling(void);
+/*interp*/
+int parse_inputs(char *buff, char **argts);
+void cmd_ARGS(char **argts, char **env);
+void path_checker(char **argts, char **env);
+void executer(char *cmd, char **argts, char **env);
+void exec_cmd(char **argts, char **env);
+
+/* builtins.c */
+void prints_env(char **environ);
+void ext_shell(int status);
+void sets_env(char *vars, char *val);
+void unsets_env(char *vars);
+
+/* cd_funcs.c */
+void cd_runs(char *path);
+void cd_hm(void);
+void cd_paths(char *path);
+void cd_prevs(void);
+
+/* strtok_functions.c */
+char *gets_token(char *token, const char *delim, int n);
+
+/* shell_exit.c */
+void ext_sh(char **args);
+
+/* get_line.c */
+char *get_line(const int fd);
+
+/* shell_1.c */
+int str_compare(char *str1, char *str2);
+char *str_cate(char *dest, char *src);
+char *str_dup(char *str);
+int _atoi(char *str);
+int str_len(char *str);
+
+/* shell_2.c */
+int strn_compare(char *str1, char *str2, int n);
+char *get_env(char *name);
+char *str_tok(char *str, const char *delim);
+char *strn_copy(char *dest, char *src, int n);
+char *str_copy(char *dest, const char *src);
+
+/* shell_3.c */
+char *strn_cate(char *dest, char *src, int n);
+char *strn_tok(char *str, const char *delim, int n);
+char *str_chr(char *str, char c);
+char *_itoa(int numb);
+int parse_argts(char *buff, char **argts);
+
 
 /*alias.c*/
 struct AliasData;
@@ -55,7 +97,7 @@ void print_aliases(const struct AliasData *data);
  * @value: The value of the alias
  */
 
-struct Alias 
+struct Alias
 {
 char name[MAX_ALIAS_NAME];
 char value[MAX_ALIAS_VALUE];
@@ -67,17 +109,10 @@ char value[MAX_ALIAS_VALUE];
  * @numAliases: The number of aliases currently defined
  */
 
-struct AliasData {
-struct Alias aliases[MAX_ALIASES];
-int numAliases;
+struct AliasData
+{
+	struct Alias aliases[MAX_ALIASES];
+	int numAliases;
 };
 
-/*var.c*/
-void handle_variables(char* cmd);
-
-
-
-/*file_input.c*/
-int main(int argc, char *argv[]);
-void run_commands_from_file(const char* filename);
 #endif
