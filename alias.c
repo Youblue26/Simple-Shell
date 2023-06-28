@@ -73,12 +73,10 @@ write(STDOUT_FILENO, "Maximum number of aliases reached.\n", 34);
 /**
  * process_alias_command - Processes alias command with a  given arguments
  * @data: pointer to AliasData structure
- * @argc: number of arguments
- * @argv: array of argument strings
 */
 void process_alias_command(struct AliasData *data)
 {
-	char name[] ="MAX_ALIAS_VALUE";
+	char name[] = "MAX_ALIAS_VALUE";
 	int i;
 
 	i = 1;
