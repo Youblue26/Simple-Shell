@@ -86,7 +86,7 @@ int parse_argts(char *buff, char **argts);
 
 /*alias.c*/
 struct AliasData;
-void process_alias_command(struct AliasData *data, int argc, char *argv[]);
+void process_alias_command(struct AliasData *data);
 void set_alias(struct AliasData *data, const char *name, const char *value);
 void print_alias(const struct AliasData *data, const char *name);
 void print_aliases(const struct AliasData *data);

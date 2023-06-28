@@ -7,10 +7,6 @@
 void print_aliases(const struct AliasData *data)
 {
 	struct AliasData;
-	int numAliases;
-	char name[] = "MAX_ALIAS-VALUE";
-	char value[] =  "MAX_ALIAS_VALUE";
-	int numAliases;
 	int i;
 
 for (i = 0; i < data->numAliases; i++)
@@ -79,31 +75,21 @@ write(STDOUT_FILENO, "Maximum number of aliases reached.\n", 34);
  * @data: pointer to AliasData structure
  * @argc: number of arguments
  * @argv: array of argument strings
- */
-void process_alias_command(struct AliasData *data, int argc, char *argv[])
+*/
+void process_alias_command(struct AliasData *data)
 {
-	if (argc == 1)
-	{
-		print_alias(data, name);
-	}
-	else if (argc == 2)
-	{
-		print_alias(data, argv[1]);
-	}
-		int i = 1;
-		char *arg = argv[i];
-		char *equalSign = strchr(arg, '=');
+	char name[] ="MAX_ALIAS_VALUE";
+	int i;
 
-		for (i = 1; i < argc; i++)
-		{
-			if (equalSign != NULL)
-		{
-			*equalSign = '\0';
-			set_alias(data, arg, equalSign + 1);
-		}
-			else
-		{
-			print_alias(data, arg);
-		}
-		}
-	}
+	i = 1;
+
+	if (i == 1)
+{
+	write(STDOUT_FILENO, "i is equal to 1\n", sizeof("i is equal to 1\n"));
+}
+
+print_alias(data, name);
+}
+
+
+
