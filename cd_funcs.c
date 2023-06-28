@@ -48,6 +48,7 @@ perror("hsh");
 else
 {
 sets_env("OLDPWD", get_env("PWD"));
+free(path);
 }
 }
 

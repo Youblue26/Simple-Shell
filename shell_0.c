@@ -4,14 +4,17 @@
  * main - entry point
  * Return: 0 if successfull
  */
-int main(void)
+int main(int ac, char **argv)
 {
 char buff[MAX_LINE];
 char *argts[MAX_ARGUMENTS];
 char *cmds[MAX_ARGUMENTS];
 int status = 1;
-int i, num_cmds = 0;
+int  num_cmds = 0;
 ssize_t bytes_read = 0;
+
+if (ac == 2)
+{
 
 while (status)
 {
@@ -29,12 +32,13 @@ if (bytes_read == -1)
 perror("Error");
 exit(1);
 }
+}
 buff[bytes_read - 1] = '\0';
 num_cmds = parse_inputs(buff, cmds);
 argts_handle(num_cmds, cmds, argts, environ);
-for (i = 0; i < num_cmds; i++)
-free(cmds[i]);
 }
+
+
 return (0);
 }
 
