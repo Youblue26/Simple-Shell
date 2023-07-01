@@ -17,8 +17,8 @@ void bling(char **av, char **env)
 
 	while (1)
 	{
-		/*if (isatty(STDIN_FILENO))*/
-		printf("$ ");
+		if (isatty(STDIN_FILENO))
+			printf("$ ");
 
 		num_ch = getline(&str, &n, stdin);
 		if (num_ch == -1)
